@@ -12,14 +12,14 @@ VERSION:=${MKBOOTIMAGE_NAME} ${VERSION_MAJOR}-${VERSION_MINOR}
 MKBOOTIMAGE_SRCS:=$(wildcard src/*.c) $(wildcard src/arch/*c) $(wildcard src/file/*c)
 MKBOOTIMAGE_OBJS:=${MKBOOTIMAGE_SRCS:.c=.o}
 
-MKBOOTIMAGE_INCLUDE_DIRS:=src
+MKBOOTIMAGE_INCLUDE_DIRS:=src /usr/local/include/libelf
 
 CFLAGS += $(foreach includedir,$(MKBOOTIMAGE_INCLUDE_DIRS),-I$(includedir)) \
 	-DMKBOOTIMAGE_VER="\"$(VERSION)\"" \
 	-Wall -Wextra -Wpedantic \
 	--std=c11
 
-LDLIBS = -lpcre -lelf
+LDLIBS = -lpcre -lelf -lArgp
 
 all: $(MKBOOTIMAGE_NAME)
 

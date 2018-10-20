@@ -1,3 +1,12 @@
+# A quick hack to support OSX
+
+Need to insteall some package from brew:
+```
+brew install pcre
+brew install libelf
+brew install Argp-standalone
+```
+
 # Zynq mkbootimage
 
 (c) 2015-2018 [Antmicro](https://antmicro.com)
